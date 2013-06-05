@@ -12,6 +12,7 @@ end
 Then /^I should be on the login page$/ do
    page.should have_content('Please')
 end
+#=begin
 Given(/^I am on the cfp home page$/) do
    visit "https://cmt-qa.mercury.ibahn.com/properties"
    fill_in("user_username", :with => "stirlingtest")
@@ -97,3 +98,63 @@ end
 Then /^I should see successful shared codes$/ do
   page.should have_content('successfully')
 end
+#=end
+########
+Given /^I am on the cfp home page to delete a personal bundle$/ do
+   visit "https://cmt-qa.mercury.ibahn.com/properties"
+   fill_in("user_username", :with => "stirlingtest")
+   fill_in("user_password", :with => "Pr0p3rty")
+   click_button('Sign In')
+  # ask('you are here')
+end
+
+When(/^I follow DREWS to delete the personal code$/) do
+  click_link("DREWS") 
+end
+
+When(/^I follow connect code to delete the code$/) do
+  click_link("Connect Codes") 
+end
+When(/^I follow Personal code bundle for DREWS$/) do
+  click_link("Personal Code Bundles")
+#  ask(" we are here")
+end
+When(/^I select Delete for PersCodeTest$/) do
+  click_link('Cross-button')
+  page.driver.browser.switch_to.alert.accept
+end
+Then(/^I should see deleted message$/) do
+  page.should have_content('deleted')
+end
+
+Given /^I am on the cfp home page to delete a shared bundle code$/ do
+   visit "https://cmt-qa.mercury.ibahn.com/properties"
+   fill_in("user_username", :with => "stirlingtest")
+   fill_in("user_password", :with => "Pr0p3rty")
+   click_button('Sign In')
+  # ask('you are here')
+end
+
+When(/^I follow DREWS to delete the shared code$/) do
+  click_link("DREWS")
+end
+
+When(/^I follow the shared code to delete the shared code$/) do
+  click_link("Connect Codes")
+end
+When(/^I follow Shared code bundle for DREWS$/) do
+  click_link("Shared")
+#  ask(" we are here")
+end
+When(/^I select Delete for SH4RED$/) do
+  click_link('Cross-button')
+  page.driver.browser.switch_to.alert.accept
+end
+Then(/^I should see the delete message for shared code bundle$/) do
+  page.should have_content('deleted')
+end
+
+
+
+
+
