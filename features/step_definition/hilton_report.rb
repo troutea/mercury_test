@@ -19,36 +19,15 @@ end
 When(/^I follow DREWS for hilton reports$/) do
   click_link("DREWS") 
 end
-=begin
-When(/^I follow Connect Code$/) do
-  click_link("Connect Codes")
-#  click_link("Personal Code Bundles")
+When(/^I follow Edit Details on site DREWS$/) do
+  click_link("Edit Details")
 end
-When(/^I follow Personal Code Bundles$/) do
-  click_link("Personal Code Bundles")
-end
-#Given /^I select "(.*?)"$/ do |link| 
-Given(/^I select NEW PERSONAL CODE BUNDLE$/) do
-  #print page.html
-  click_link("New Personal Code Bundle")
-#  ask("where are we now")
-end
-When /^I fill in the connect code details$/ do
-  fill_in( "Bundle Description", :with => "PersCodeTest") 
-  fill_in("Number of Codes", :with => "2")
-  @valid_time = Time.now
-  @valid_until = Time.now
-  fill_in("Valid From", :with =>@valid_time)
-  find_button("Done").click
-  fill_in("Valid Until", :with =>@valid_until+3600)
-  find_button("Done").click
-  #ask('we are here')
-  find_button("Save").click 
+When(/^I select Hilton in the Reporting Group dropdown$/) do
+   select('Hilton', :from => 'warehouse_report_group_id')
+#  page.select('Hilton', :from => 'property_warehouse_report_group_id') #
 end
 
-Then /^I should see successful$/ do
-  page.should have_content('successfully') 
-end
+=begin
 =end
 ##################################################
 
