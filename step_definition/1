@@ -1,0 +1,48 @@
+Given /^I am on the customer facing the portal\.$/ do
+  visit "https://cmt-qa.mercury.ibahn.com" # express the regexp above with the code you wish you had
+end
+
+When /^I have a confirmed account$/ do
+   fill_in("user_username", :with => "stirlingtest")
+   fill_in("user_password", :with => "Pr0p3rty")
+   step 'I click "Sign In"'
+   ask('does this look right')
+end
+
+#Then /^I should be on the Home page$/ do
+# page.should have_content ("Home") 
+#end
+
+#Given /^I visit the properties page$/ do
+#  visit('/properties') 
+#  fill_in("user_username", :with => "atroute")
+#  fill_in("user_password", :with => "Internet1819")
+#  step 'I click "Sign In"'
+#end
+#When /^I follow "([^"]*)"$ in the page/ do |link|
+#  click_link("DREWS")
+#end
+
+#When /^I follow "([^"]*)"$ in this/ do |link|
+#  click_link("Connect Codes")
+#end
+
+#When /^I follow "([^"]*)"$ in / do |link|
+#  click_link("Personal Code Bundles")
+#end
+
+#When /^I follow "([^"]*)"$ in the / do |link|
+#  click_link("NEW PERSONAL CODE BUNDLE")
+#end
+#Then /^I should have a connect code$/ do
+#  page.should have_content ("Personal") 
+#end
+
+#Then /^I should be on the properties page$/ do
+  #ask('does this look right') 
+#  page.should have_content ("Personal Code Bundles") 
+#end
+
+
+
+
