@@ -31,3 +31,10 @@ Feature: Customer Facing Portal for Hilton
      # When I enter the date
       And I click save
       Then I should see Pending
+    @wip
+    Scenario: Hilton reports disable 
+        When I follow DREWS to disable  hilton reports
+        When I follow Edit Details on site DREWS to disable hilton reports
+        When I select None in the Reporting Group dropdown
+        Then I should not see Reports link
+
