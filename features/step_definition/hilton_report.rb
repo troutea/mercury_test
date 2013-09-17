@@ -51,12 +51,39 @@ Then(/^I should be on the Hilton Reports page$/) do
   page.should have_content('Invoicing') 
 end
 
+#Scenario 3
+When(/^I follow DREWS to view a report$/) do
+   click_link("DREWS")
+end
 
+When(/^I click the reports link to view the report$/) do
+   click_link("Reports") 
+end
 
-
-
+When(/^I click on the Invoicing report$/) do
+   click_link("Invoicing / Payment Report") 
+end
 =begin
+When(/^I enter the date$/) do
+  @valid_time = Time.now
+  @valid_until = Time.now
+  fill_in("Start Date", :with =>@valid_time)
+  find_button("Done").click
+  fill_in("End Date", :with =>@valid_until+3600)
+  find_button("Done").click
+  #ask('we are here')
+end
 =end
+When(/^I click save$/) do
+  find_button("Submit").click
+end
+
+Then(/^I should see Pending$/) do
+   page.should have_content('Pending')
+end
+
+
+
 ##################################################
 
 ##################################################

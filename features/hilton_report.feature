@@ -16,9 +16,18 @@ Feature: Customer Facing Portal for Hilton
         Then I should see Reports link
 
     
-    @wip
+    @workn
     Scenario: Access the Hilton Reports link
        When I follow DREWS to access reports link 
        When I am on the customer site page
        And I click the Reports Link
        Then I should be on the Hilton Reports page 
+
+    @workn
+    Scenario: View a hilton report
+      When I follow DREWS to view a report
+      When I click the reports link to view the report
+      And I click on the Invoicing report
+     # When I enter the date
+      And I click save
+      Then I should see Pending
