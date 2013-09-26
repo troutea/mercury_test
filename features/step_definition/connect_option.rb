@@ -21,6 +21,14 @@ end
 #Scenario 1
 When(/^I follow DREWS for ftg connect option$/) do
   click_link("DREWS") 
+  click_link("Connect Options")
+  click_link("Add Option")
+  page.should have_content('Free')
+  fill_in("Landing url", :with => "www.bbc.co.uk")
+  find_by_id('lobby').click
+  fill_in("Max Kbps Down", :with => "5000")
+  fill_in("Max Kbps Up", :with => "2000")
+  click_button("Save") 
 end
 
 
